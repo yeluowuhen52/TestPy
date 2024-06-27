@@ -1,5 +1,6 @@
 import time
 from appium import webdriver
+from selenium.webdriver.common.by import By
 
 desired_caps = dict()
 desired_caps['platformName'] = 'Android'
@@ -18,17 +19,20 @@ print(driver.current_package + '---' + driver.current_activity)
 driver.start_activity("com.ss.android.article.news", "com.ss.android.article.news.activity.MainActivity")
 print(driver.current_package + '33333---' + driver.current_activity)
 
-titles = driver.find_elements_by_id("com.ss.android.article.news:id/hkx")
-print(len(titles))
+# titles = driver.find_elements_by_id("com.ss.android.article.news:id/hkx")
+# print(len(titles))
+#
+#
+# for title in titles:
+#     txt = title.text[0:3]
+#     print(title.text)
+#
+# path = "//*[contains(@text,'"+ txt+ "')]"
+# print(path)
+# titles2 = driver.find_elements_by_xpath(path)
+# print(len(titles2))
 
-
-for title in titles:
-    txt = title.text[0:3]
-    print(title.text)
-
-path = "//*[contains(@text,'"+ txt+ "')]"
-print(path)
-titles2 = driver.find_elements_by_xpath(path)
-print(len(titles2))
+driver.find_element(By.ID, "com.ss.android.article.news:id/h6m").click()
+# driver.find_element_by_id("com.ss.android.article.news:id/h6m").click()
 
 driver.quit()
