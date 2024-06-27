@@ -19,11 +19,19 @@ print(driver.current_package + '---' + driver.current_activity)
 driver.start_activity("com.ss.android.article.news", "com.ss.android.article.news.activity.MainActivity")
 
 print(driver.current_package + '33333---' + driver.current_activity)
+
+# driver.background_app("com.ss.android.article.news")
+
+driver.find_element_by_id("com.ss.android.article.news:id/h6m").click()
 time.sleep(5)
-driver.terminate_app("com.ss.android.article.news")
+driver.find_element_by_id("com.ss.android.article.news:id/d0").send_keys("测试")
+driver.find_element_by_id("com.ss.android.article.news:id/e2").click()
 
-print(driver.is_app_installed("com.ss.android.article.news"))
+# time.sleep(5)
+# driver.terminate_app("com.ss.android.article.news")
 
-driver.install_app("D:\头条搜索极速版.apk")
+# print(driver.is_app_installed("com.ss.android.article.news"))
+
+# driver.install_app("D:\头条搜索极速版.apk")
 
 driver.quit()
