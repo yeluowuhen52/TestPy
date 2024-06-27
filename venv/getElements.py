@@ -15,24 +15,20 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
 # 启动今日头条
 print(driver.current_package + '---' + driver.current_activity)
-
 driver.start_activity("com.ss.android.article.news", "com.ss.android.article.news.activity.MainActivity")
-
 print(driver.current_package + '33333---' + driver.current_activity)
 
-# driver.background_app("com.ss.android.article.news")
+titles = driver.find_elements_by_id("com.ss.android.article.news:id/hkx")
+print(len(titles))
 
-driver.find_element_by_id("com.ss.android.article.news:id/h6m").click()
-time.sleep(5)
-driver.find_element_by_id("com.ss.android.article.news:id/d0").send_keys("测试")
-driver.find_element_by_id("com.ss.android.article.news:id/e2").click()
-driver.find_element_by_xpath("//*[@class='android.widget.Button']").click()
 
-# time.sleep(5)
-# driver.terminate_app("com.ss.android.article.news")
+for title in titles:
+    txt = title.text[0:3]
+    print(title.text)
 
-# print(driver.is_app_installed("com.ss.android.article.news"))
-
-# driver.install_app("D:\头条搜索极速版.apk")
+path = "//*[contains(@text,'"+ txt+ "')]"
+print(path)
+titles2 = driver.find_elements_by_xpath(path)
+print(len(titles2))
 
 driver.quit()
