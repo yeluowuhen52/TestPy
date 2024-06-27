@@ -6,6 +6,8 @@ desired_caps = dict()
 desired_caps['platformName'] = 'Android'
 desired_caps['platformVersion'] = '12'
 desired_caps['deviceName'] = '127.0.0.1:7555'
+desired_caps['unicodeKeyboard'] = True
+desired_caps['resetKeyboard'] = True
 # 今日头条
 # desired_caps['appPackage'] = 'com.ss.android.article.news'
 # desired_caps['appActivity'] = 'com.ss.android.article.news.activity.MainActivity'
@@ -33,6 +35,16 @@ print(driver.current_package + '33333---' + driver.current_activity)
 # print(len(titles2))
 
 driver.find_element(By.ID, "com.ss.android.article.news:id/h6m").click()
+time.sleep(5)
+srcText = driver.find_element(By.ID, "com.ss.android.article.news:id/d0")
+print(srcText.location)
+print(srcText.size)
+
+print(srcText.get_attribute("resourceId"))
+
+# {'x': 111, 'y': 45}
+# {'height': 60, 'width': 339}
+
 # driver.find_element_by_id("com.ss.android.article.news:id/h6m").click()
 
 driver.quit()
