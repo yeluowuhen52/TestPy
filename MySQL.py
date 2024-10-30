@@ -17,7 +17,7 @@ rows = cursor.fetchall()
 for row in rows:
     print(row)
 # 打印查询结果
-# print(rows)
+print(rows)
 
 # 关闭游标和连接
 cursor.close()
